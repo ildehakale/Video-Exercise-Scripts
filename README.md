@@ -1,0 +1,1 @@
+# Making exercises scripts for videos 

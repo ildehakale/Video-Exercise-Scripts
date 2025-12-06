@@ -2,7 +2,13 @@
 *.pyc
 __pycache__/
 
-# venv files
-.venv/
-venv/
-env/
+# Virtual environment folders
+deneme_venv/
+
+
+# Video and audio files
+*.mp3
+*.mp4
+
+# log files
+*.log
