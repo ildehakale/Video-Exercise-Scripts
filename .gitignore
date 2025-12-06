@@ -12,3 +12,6 @@ deneme_venv/
 
 # log files
 *.log
+
+# git
+*.git
