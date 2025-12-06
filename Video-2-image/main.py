@@ -2,8 +2,8 @@
 import argparse
 from Video2image import Video2Image
 import logging
-# STEP BY STEP GUIDE:
 # =========================
+
 # ARCHITECTURE:
 """
 video2image.py -> calls Video2image  ->  input video file -> extract frames with cv2 
@@ -11,11 +11,25 @@ video2image.py -> calls Video2image  ->  input video file -> extract frames with
 
 """
 # ========================
+
+# STEP BY STEP GUIDE:
 # video to image with mp4 format videos
-# select the video path and output image path
-# select the number of frame per second by parse argument
+# import Video2image class to handle video to image conversion
 # import logger to log the process
 
+# select video-path , output-path and the number of frame per second(fps) by parse argument
+# find all images in your images file
+"""
+Terminal Command:
+
+python3 main.py --video-path ./sample_videos/sample1.mp4 --output-path ./images --fps 1 --type png
+
+
+Expected Output:
+Extracted frames will be saved as images in the specified output directory at the rate of 1 frame per second.
+
+
+"""
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Video to Image by specified fps')
@@ -32,24 +46,26 @@ def parse_args():
                         type=int,
                         default=1,
                         help=' Number of frames to extract per second')
+    parser.add_argument('--type',
+                        type=str,
+                        default='png',
+                        help= 'Format of the image files (e.g. png,jpg,jpeg)')
     
     return parser.parse_args()
 
 
-
 def main():
     logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='./video2image.log', # 
-                    filemode='w')
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', # log file format 
+                    filename='./video2image.log', # log file path
+                    filemode='w' ) # write mode 
     
     args= parse_args()
 
-    video2Image = Video2Image(args.video_path, args.output_path, args.fps)
+    video2Image = Video2Image(args.video_path, args.output_path, args.fps,args.type)
 
     video2Image.extract_frames()
 
 
-    
 if __name__ == '__main__':
     main()
