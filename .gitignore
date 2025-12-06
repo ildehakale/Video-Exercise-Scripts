@@ -5,7 +5,9 @@ __pycache__/
 # Virtual environment folders
 deneme_venv/
 
-
+# image files
+**/*.png
+**/*.jpg
 # Video and audio files
 **/*.mp3
 **/*.mp4
