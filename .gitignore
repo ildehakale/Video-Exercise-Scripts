@@ -8,6 +8,8 @@ deneme_venv/
 # image files
 **/*.png
 **/*.jpg
+**/*.jpeg
+
 # Video and audio files
 **/*.mp3
 **/*.mp4
