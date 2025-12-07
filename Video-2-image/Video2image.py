@@ -46,7 +46,7 @@ class Video2Image:
     
     def get_type(self):
         file_format = self.type
-        self.logger.info(f"Image type format is: {file_format}")
+        self.logger.info(f"Image type format: {file_format}")
         return file_format
     
     """
@@ -106,7 +106,7 @@ class Video2Image:
                         self.logger.error(f"I/O error saving frame {saved_frame_count} at {image_path}: {e}")
                         break
                     # Use executor to save frame asynchronously
-                    executor.submit(cv2.imwrite, os.path.join(image_path, f"frame_{saved_frame_count:05d}.{image_format}"), frame)
+                    executor.submit(cv2.imwrite, os.path.join(image_path, f"{saved_frame_count:05d}.{image_format}"), frame)
                     self.logger.debug(f"Submitted frame {saved_frame_count} for saving.")
 
                     # update saved frame count

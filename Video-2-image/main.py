@@ -1,7 +1,7 @@
 
 import argparse
-from Video2image import Video2Image
 import logging
+from Video2image import Video2Image
 # =========================
 
 # ARCHITECTURE:
